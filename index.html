@@ -12,6 +12,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Roboto', sans-serif;
+            overflow: auto; /* 전체 페이지 스크롤 활성화 */
         }
 
         header{
@@ -40,18 +41,18 @@
         }
 
         .container {
-            display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
-            gap: 20px;
-            padding: 20px;
-            height: 100vh; /* 전체 화면 높이 설정 */
-             min-height: 100vh; /* 최소 높이 설정하여 부족하면 페이지 전체 스크롤 */
-    overflow: auto; /* 컨테이너 자체가 필요할 경우 스크롤 */
+             display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    min-height: 100vh; /* 최소 높이 설정 (100vh 이상 가능) */
+    overflow: visible; /* 컨테이너 내부 요소가 넘칠 경우, 부모가 스크롤 허용 */
     scrollbar-width: none; /* Firefox에서 스크롤바 숨기기 */
     -ms-overflow-style: none; /* IE와 Edge에서 스크롤바 숨기기 */
         }
 
         .left, .content, .right {
+             flex-grow: 1; /* 자동 크기 조정 */
             padding: 20px;
             overflow-y: auto; /* 세로 스크롤 추가 */
     max-height: calc(100vh - 50px); /* header 높이를 고려하여 최대 높이 설정 */
